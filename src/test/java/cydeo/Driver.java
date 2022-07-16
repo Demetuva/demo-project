@@ -15,23 +15,23 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.URL;
 
-public class Driver {
+public  class  Driver {
     static String browser;
 
-    private Driver() {
+    private Driver()  {
     }
 
-    private static WebDriver driver;
+    private  static WebDriver  driver;
 
     public static WebDriver getDriver() {
-        if (driver == null) {
-            if (System.getProperty("BROWSER") == null) {
+        if  (driver == null) {
+            if (System.getProperty ("BROWSER") == null) {
                 browser = ConfigurationReader.getProperty("browser");
             } else {
-                browser = System.getProperty("BROWSER");
+                browser  = System.getProperty("BROWSER");
             }
             System.out.println("Browser: " + browser);
-            switch (browser) {
+            switch  (browser) {
                 case "remote-chrome":
                     try {
                         // assign your grid server address
@@ -49,7 +49,7 @@ public class Driver {
 
                     try {
                         // assign your grid server address
-                        String gridAddress = "52.90.101.317";
+                        String gridAddress  = "52.90.101.317";
                         URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("firefox");
@@ -60,7 +60,7 @@ public class Driver {
                     break;
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new  ChromeDriver();
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
